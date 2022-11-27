@@ -10,7 +10,7 @@ export default function Header() {
                      onClick={()=>window.location.replace("/")}
                 >Shop</div>
                 <div className={'d-flex p-2'}>
-                    <div className={'mx-2 navbarAttributes'}>Category</div>
+                    <div className={'mx-2 navbarAttributes'} onClick={()=>window.location.replace("/categories")}>Category</div>
                     <div className={'mx-2 navbarAttributes'} onClick={()=>window.location.replace("/aboutus")}>About Us</div>
                 </div>
             </div>
