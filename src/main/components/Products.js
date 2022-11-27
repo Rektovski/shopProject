@@ -4,7 +4,7 @@ import "../styles/categoriesStyle.css";
 import axios from "axios";
 import {Col, Row} from "react-bootstrap";
 
-export default function Products(){
+export default function Products() {
     const [products, setProducts] = useState([]);
     const categoryID = localStorage.getItem("productsCategoryIDNow");
 
@@ -16,7 +16,7 @@ export default function Products(){
             .catch(error => console.error(error + "Error During getting products list"));
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         getProducts();
     }, [])
 
@@ -28,15 +28,23 @@ export default function Products(){
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
 
+    const getProductIdAndGoToThatSite = (id) => {
+        localStorage.setItem("productItemIDNow", id);
+        window.location.replace("/categories/products/item");
+    }
+
+
     return (
         <>
             <div className={'mainBackground'}>
                 <Row className={'categories'}>
                     {
                         products.map((item, id) => (
-                            <Col key={id} sm={12} md={6} lg={4} xl={4} xxl={3} className={'categorySpace'}>
+                            <Col
+                                onClick={() => getProductIdAndGoToThatSite(item.id)}
+                                key={id} sm={12} md={6} lg={4} xl={4} xxl={3} className={'categorySpace'}>
                                 <div className="card">
-                                    <img src={item.category.image} className="card__image" alt="product foto"/>
+                                    <img src={item.images[1]} className="card__image" alt="product foto"/>
                                     {
                                         windowSize < 600 ?
                                             <div className="card__overlay">
