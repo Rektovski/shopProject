@@ -1,0 +1,8 @@
+.footerSpace {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background: rgba(211, 128, 69, 0.6);
+    color: revert;
+}

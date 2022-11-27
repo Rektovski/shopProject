@@ -1,0 +1,18 @@
+.ownerFaceSpace {
+    width: 300px;
+    height: 260px;
+}
+
+.ownerFace {
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    margin: 10px;
+}
+
+.textSpaceBackGround {
+    background: rgba(95, 158, 160, 0.7);
+    border-radius: 20px;
+    color: whitesmoke;
+    font-weight: bold;
+}
