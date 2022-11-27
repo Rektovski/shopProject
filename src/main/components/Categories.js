@@ -22,9 +22,13 @@ export default function Categories(){
     useEffect(() => {
         const handleWindowResize = () => setWindowSize(getWindowSize());
         window.addEventListener('resize', handleWindowResize);
-        console.log('AboutUs.js');
         return () => window.removeEventListener('resize', handleWindowResize);
     }, []);
+
+    const onClickCategoryCard = async (id) => {
+        localStorage.setItem("productsCategoryIDNow", id);
+        window.location.replace(`/categories/products`);
+    }
 
     return (
         <>
@@ -34,7 +38,7 @@ export default function Categories(){
                         categories.map((item, id) => (
                             <Col key={id} sm={12} md={6} lg={4} xl={4} xxl={3} className={'categorySpace'}>
                                 <div className="card">
-                                    <img onClick={()=>window.location.replace(`/categories/${item.id}`)}
+                                    <img onClick={()=>onClickCategoryCard(item.id)}
                                          src={item.image} className="card__image" alt="category foto"/>
                                     {
                                         windowSize < 600 ?
